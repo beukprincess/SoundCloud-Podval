@@ -2,7 +2,7 @@ name: Deploy SoundCloud Bot
 
 on:
   push:
-    branches: [ develop, main ]
+    branches: [ main ]
 
 jobs:
   deploy-bot:
@@ -17,7 +17,7 @@ jobs:
         IMAGE_TAG="soundcloud-bot:${{ github.sha }}"
         
         # Збираємо Docker-образ
-        docker build -t $IMAGE_TAG ./Bot
+        docker build -t $IMAGE_TAG .
         
         docker save $IMAGE_TAG | sudo k3s ctr -n k8s.io images import -
         
