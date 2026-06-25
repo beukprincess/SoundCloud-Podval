@@ -1,6 +1,6 @@
 FROM python:3.10-alpine
 
-RUN apt-get update && apt-get install -y ffmpeg && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache ffmpeg
 
 WORKDIR /app
 COPY requirements.txt .
