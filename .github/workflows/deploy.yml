@@ -25,6 +25,6 @@ jobs:
 
     - name: Update K3s Deployment
       run: |
-        sudo k3s kubectl set image deployment/soundcloud-bot bot=soundcloud-bot:${{ github.sha }} -n default
+        sudo k3s kubectl set image deployment/soundcloud-bot bot=soundcloud-bot:${{ github.sha }} -n telegram-bots
         
-        sudo k3s kubectl rollout status deployment/soundcloud-bot -n default
+        sudo k3s kubectl rollout status deployment/soundcloud-bot -n telegram-bots
